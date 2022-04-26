@@ -1,9 +1,10 @@
 import subprocess
-import hashlib
 import urllib
 
 import flask
 import yaml
+
+
 def transcode_file(request, filename):
     """
     Some description
@@ -33,20 +34,17 @@ def authenticate(password):
     print("Successfully authenticated!")
 
 
-def fetch_website(urllib_version, url):
+def fetch_website(url):
     """
     Some description
     :return:
     """
-    # Import the requested version of urllib
-    exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
     http = urllib.PoolManager()
     request_result = http.request('GET', url)
     return request_result.data
 
 
-@app.route("/")
 def index():
     """
     Some description
